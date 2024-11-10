@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/ui/screens/cancelled_task_screen.dart';
-import 'package:taskmanager/ui/screens/completed_task_screen.dart';
-import 'package:taskmanager/ui/screens/new_task_screen.dart';
-import 'package:taskmanager/ui/screens/progress_task_screen.dart';
+import 'package:project3212/ui/screens/cancelled_task_screen.dart';
+import 'package:project3212/ui/screens/completed_task_screen.dart';
+import 'package:project3212/ui/screens/new_task_screen.dart';
+import 'package:project3212/ui/screens/progress_task_screen.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:taskmanager/ui/utils/assets_path.dart';
-import 'package:taskmanager/ui/widgets/tm_app_bar.dart';
+import 'package:project3212/ui/utils/assets_path.dart';
+import 'package:project3212/ui/widgets/tm_app_bar.dart';
 
 class MainBottomNavbarScreen extends StatefulWidget {
   const MainBottomNavbarScreen({super.key});
