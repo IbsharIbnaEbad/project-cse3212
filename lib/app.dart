@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/ui/screens/splash_screen.dart';
-import 'package:taskmanager/ui/utils/app_colors.dart';
+import 'package:project3212/ui/screens/splash_screen.dart';
+import 'package:project3212/ui/utils/app_colors.dart';
 
 class Taskmanagerapp extends StatelessWidget {
   const Taskmanagerapp({super.key});
