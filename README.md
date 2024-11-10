@@ -1,16 +1,51 @@
-# project3212
+# Flutter Project - CSE 3212
 
-A new Flutter project.
+This is the project for the CSE 3212 course. The project aims to ["ss"].
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- []
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter**: Cross-platform mobile development framework
+- **Libraries/Frameworks**:
+    - [Dio](https://pub.dev/packages/dio) – for making network requests
+    - [CachedNetworkImage](https://pub.dev/packages/cached_network_image) – for image loading and caching
+    - [Flutter Material](https://flutter.dev/docs/development/ui/widgets/material) – for UI components
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Requirements
+
+- Flutter SDK (version [ 3.24.1 ])
+- Dart SDK (version [ 3.5.1])
+- Android Studio or Visual Studio Code (with Flutter and Dart plugins)
+- A physical Android  device, or an emulator for testing
+
+
+## Installation
+
+1. Clone this repository to your local machine:
+    ```bash
+    git clone https://github.com/IbsharIbnaEbad/project3212.git
+    ```
+
+2. Open the project in your preferred IDE (Android Studio or Visual Studio Code).
+
+3. Run the following command to install the dependencies:
+    ```bash
+    flutter pub get
+    ```
+
+
+
+4. Build and run the app on a connected device or emulator using:
+    ```bash
+    flutter run
+    ```
+
+[//]: # (## Screenshots)
+
+[//]: # ()
+[//]: # (![Screenshot 1]&#40;screenshots/screenshot1.png&#41;)
+
+[//]: # (![Screenshot 2]&#40;screenshots/screenshot2.png&#41;)
