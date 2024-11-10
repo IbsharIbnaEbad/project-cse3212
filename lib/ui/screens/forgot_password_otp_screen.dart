@@ -1,15 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:taskmanager/data/models/network_response.dart';
-import 'package:taskmanager/data/services/network_caller.dart';
-import 'package:taskmanager/data/utils/urls.dart';
-import 'package:taskmanager/ui/screens/reset_password_screen.dart';
-import 'package:taskmanager/ui/screens/signin_screen.dart';
-import 'package:taskmanager/ui/utils/app_colors.dart';
-import 'package:taskmanager/ui/widgets/Screenbackground.dart';
-import 'package:taskmanager/ui/widgets/center_circular_progress.dart';
-import 'package:taskmanager/ui/widgets/snack_bar_message.dart';
+// import 'package:project3212/data/models/network_response.dart';
+// import 'package:project3212/data/services/network_caller.dart';
+// import 'package:project3212/data/utils/urls.dart';
+import 'package:project3212/ui/screens/reset_password_screen.dart';
+import 'package:project3212/ui/screens/signin_screen.dart';
+import 'package:project3212/ui/utils/app_colors.dart';
+import 'package:project3212/ui/widgets/Screenbackground.dart';
+import 'package:project3212/ui/widgets/center_circular_progress.dart';
+import 'package:project3212/ui/widgets/snack_bar_message.dart';
 
 class ForgotPasswordOTPScreen extends StatefulWidget {
   final String email; // Email passed from previous screen
@@ -144,32 +144,32 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
       return;
     }
 
-    await _verifyOTP(email, otp);
+    // await _verifyOTP(email, otp);
   }
 
-  Future<void> _verifyOTP(String email, String otp) async {
-    setState(() {
-      _forgetPasswordOtpInProgress = true;
-    });
-
-    final NetworkResponse response = await NetworkCaller.getRequest(
-      url: Urls.otpEmail(email, otp),
-    );
-
-    if (response.isSuccess) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => ResetPasswordScreen(email: email, otp: otp)),
-      );
-    } else {
-      showSnackBarMessage(context, response.errorMessage, true);
-    }
-
-    setState(() {
-      _forgetPasswordOtpInProgress = false;
-    });
-  }
+  // Future<void> _verifyOTP(String email, String otp) async {
+  //   setState(() {
+  //     _forgetPasswordOtpInProgress = true;
+  //   });
+  //
+  //   final NetworkResponse response = await NetworkCaller.getRequest(
+  //     url: Urls.otpEmail(email, otp),
+  //   );
+  //
+  //   if (response.isSuccess) {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //           builder: (context) => ResetPasswordScreen(email: email, otp: otp)),
+  //     );
+  //   } else {
+  //     showSnackBarMessage(context, response.errorMessage, true);
+  //   }
+  //
+  //   setState(() {
+  //     _forgetPasswordOtpInProgress = false;
+  //   });
+  // }
 
   void _onTapSignIn() {
     Navigator.pushAndRemoveUntil(
