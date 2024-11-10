@@ -1,4 +1,4 @@
-                 ![Welcome](https://media.tenor.com/sCfC2XDlVPYAAAAi/wlcm.gif)
+![Welcome](https://media.tenor.com/sCfC2XDlVPYAAAAi/wlcm.gif)
 # Flutter Project - CSE 3212
 
 This is the project for the CSE 3212 course. The project aims to ["ss"].
