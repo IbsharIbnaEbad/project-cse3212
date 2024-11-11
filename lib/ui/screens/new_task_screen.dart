@@ -25,13 +25,13 @@ class NewTaskScreen extends StatefulWidget {
 class _NewTaskScreenState extends State<NewTaskScreen> {
   bool _getNewTaskListProgress = false;
 
-  List<TaskModel> _newTaskList = [];
+  // List<TaskModel> _newTaskList = [];
 
 
   @override
   void initState() {
     super.initState();
-    _getNewTasklist();
+    // _getNewTasklist();
 
   }
 
@@ -40,32 +40,32 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          _getNewTasklist();
+          // _getNewTasklist();
 
         },
         child: Column(
-          children: [
-            BuildSummerySection(),
-            Expanded(
-              child: Visibility(
-                visible: !_getNewTaskListProgress,
-                replacement: const CenterCircularProgress(),
-                child: ListView.separated(
-                    itemCount: _newTaskList.length,
-                    itemBuilder: (context, index) {
-                      return TaskCard(
-                        taskModel: _newTaskList[index],
-                        onRefreshList: () => _getNewTasklist(),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 8,
-                      );
-                    }),
-              ),
-            ),
-          ],
+          // children: [
+          //   BuildSummerySection(),
+          //   Expanded(
+          //     // child: Visibility(
+          //     //   visible: !_getNewTaskListProgress,
+          //     //   replacement: const CenterCircularProgress(),
+          //     //   child: ListView.separated(
+          //     //       itemCount: _newTaskList.length,
+          //     //       itemBuilder: (context, index) {
+          //     //         return TaskCard(
+          //     //           taskModel: _newTaskList[index],
+          //     //           onRefreshList: () => _getNewTasklist(),
+          //     //         );
+          //     //       },
+          //     //       separatorBuilder: (context, index) {
+          //     //         return const SizedBox(
+          //     //           height: 8,
+          //     //         );
+          //     //       }),
+          //     // ),
+          //   ),
+          // ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -83,26 +83,26 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       ),
     );
     if (shouldRefresh == true) {
-      _getNewTasklist();
+      // _getNewTasklist();
     }
   }
 
-  Future<void> _getNewTasklist() async {
-    _newTaskList.clear();
-    _getNewTaskListProgress = true;
-    setState(() {});
-    final NetworkResponse response =
-        await NetworkCaller.getRequest(url: Urls.newTaskList);
-    if (response.isSuccess) {
-      final TaskListModel taskListModel =
-          TaskListModel.fromJson(response.responseData);
-      _newTaskList = taskListModel.taskList ?? [];
-    } else {
-      showSnackBarMessage(context, response.errorMessage, true);
-    }
-    _getNewTaskListProgress = false;
-    setState(() {});
-  }
+  // Future<void> _getNewTasklist() async {
+  //   _newTaskList.clear();
+  //   _getNewTaskListProgress = true;
+  //   setState(() {});
+  //   final NetworkResponse response =
+  //       await NetworkCaller.getRequest(url: Urls.newTaskList);
+  //   if (response.isSuccess) {
+  //     final TaskListModel taskListModel =
+  //         TaskListModel.fromJson(response.responseData);
+  //     _newTaskList = taskListModel.taskList ?? [];
+  //   } else {
+  //     showSnackBarMessage(context, response.errorMessage, true);
+  //   }
+  //   _getNewTaskListProgress = false;
+  //   setState(() {});
+  // }
 
 
 
