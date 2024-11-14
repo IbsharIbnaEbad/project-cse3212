@@ -195,17 +195,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
       requestbody['photo'] = convertedImage;
     }
 
-    NetworkResponse response = await NetworkCaller.postRequest(
-        url: Urls.updateProfile, body: requestbody);
+    // NetworkResponse response = await NetworkCaller.postRequest(
+    //     url: Urls.updateProfile, body: requestbody);
     _updateProfileInprogress = false;
     setState(() {});
-    if (response.isSuccess) {
-      UserModel userModel = UserModel.fromJson(requestbody);
-    AuthController.saveUserData(userModel);
-      showSnackBarMessage(context, 'profile updated');
-    } else {
-      showSnackBarMessage(context, response.errorMessage);
-    }
+    // if (response.isSuccess) {
+    //   UserModel userModel = UserModel.fromJson(requestbody);
+    // AuthController.saveUserData(userModel);
+    //   showSnackBarMessage(context, 'profile updated');
+    // } else {
+    //   showSnackBarMessage(context, response.errorMessage);
+    // }
   }
 
   String _getSelectedPhotoTitle() {
