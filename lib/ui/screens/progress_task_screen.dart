@@ -18,7 +18,7 @@ class ProgressTaskScreen extends StatefulWidget {
 
 class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   bool _getProgressTaskListProgress = false;
-  List<TaskModel> _newProgressList = [];
+  // List<TaskModel> _newProgressList = [];
 
   @override
   void initState() {
@@ -40,21 +40,21 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
               child: Visibility(
                 visible: !_getProgressTaskListProgress,
                 replacement: const CenterCircularProgress(),
-                child: ListView.separated(
-                    itemCount: _newProgressList.length,
-                    itemBuilder: (context, index) {
-                      return TaskCard(
-                        taskModel: _newProgressList[index],
-                        onRefreshList: () {
-                          _getProgressTaskList();
-                        },
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 8,
-                      );
-                    }),
+                // child: ListView.separated(
+                //     // itemCount: _newProgressList.length,
+                //     itemBuilder: (context, index) {
+                //       return TaskCard(
+                //         taskModel: _newProgressList[index],
+                //         onRefreshList: () {
+                //           _getProgressTaskList();
+                //         },
+                //       );
+                //     },
+                //     separatorBuilder: (context, index) {
+                //       return const SizedBox(
+                //         height: 8,
+                //       );
+                //     }),
               ),
             ),
           ],
@@ -63,20 +63,20 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
     );
   }
 
-  Future<void> _getProgressTaskList() async {
-    _newProgressList.clear();
-    _getProgressTaskListProgress = true;
-    setState(() {});
-    final NetworkResponse response =
-        await NetworkCaller.getRequest(url: Urls.ProgressTaskList);
-    if (response.isSuccess) {
-      final TaskListModel taskListModel =
-          TaskListModel.fromJson(response.responseData);
-      _newProgressList = taskListModel.taskList ?? [];
-    } else {
-      showSnackBarMessage(context, response.errorMessage, true);
-    }
-    _getProgressTaskListProgress = false;
-    setState(() {});
-  }
+  // Future<void> _getProgressTaskList() async {
+  //   _newProgressList.clear();
+  //   _getProgressTaskListProgress = true;
+  //   setState(() {});
+  //   final NetworkResponse response =
+  //       await NetworkCaller.getRequest(url: Urls.ProgressTaskList);
+  //   if (response.isSuccess) {
+  //     final TaskListModel taskListModel =
+  //         TaskListModel.fromJson(response.responseData);
+  //     _newProgressList = taskListModel.taskList ?? [];
+  //   } else {
+  //     showSnackBarMessage(context, response.errorMessage, true);
+  //   }
+  //   _getProgressTaskListProgress = false;
+  //   setState(() {});
+  // }
 }
