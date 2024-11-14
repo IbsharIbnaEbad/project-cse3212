@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:project3212/data/models/network_response.dart';
-import 'package:project3212/data/models/user_model.dart';
-import 'package:project3212/data/services/network_caller.dart';
-import 'package:project3212/data/utils/urls.dart';
+// import 'package:project3212/data/models/network_response.dart';
+// import 'package:project3212/data/models/user_model.dart';
+// import 'package:project3212/data/services/network_caller.dart';
+// import 'package:project3212/data/utils/urls.dart';
 import 'package:project3212/ui/controller/auth_controller.dart';
 import 'package:project3212/ui/widgets/center_circular_progress.dart';
 import 'package:project3212/ui/widgets/snack_bar_message.dart';
