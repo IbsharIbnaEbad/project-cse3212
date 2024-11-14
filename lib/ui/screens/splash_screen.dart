@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:taskmanager/ui/controller/auth_controller.dart';
-import 'package:taskmanager/ui/screens/main_bottom_navbar_screen.dart';
-import 'package:taskmanager/ui/screens/signin_screen.dart';
+import 'package:project3212/ui/controller/auth_controller.dart';
+import 'package:project3212/ui/screens/main_bottom_navbar_screen.dart';
+import 'package:project3212/ui/screens/signin_screen.dart';
 import '../utils/assets_path.dart';
 import '../widgets/Screenbackground.dart';
 

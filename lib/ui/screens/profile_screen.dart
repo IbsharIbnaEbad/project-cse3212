@@ -2,14 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:taskmanager/data/models/network_response.dart';
-import 'package:taskmanager/data/models/user_model.dart';
-import 'package:taskmanager/data/services/network_caller.dart';
-import 'package:taskmanager/data/utils/urls.dart';
-import 'package:taskmanager/ui/controller/auth_controller.dart';
-import 'package:taskmanager/ui/widgets/center_circular_progress.dart';
-import 'package:taskmanager/ui/widgets/snack_bar_message.dart';
-import 'package:taskmanager/ui/widgets/tm_app_bar.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/models/user_model.dart';
+import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/utils/urls.dart';
+import 'package:project3212/ui/controller/auth_controller.dart';
+import 'package:project3212/ui/widgets/center_circular_progress.dart';
+import 'package:project3212/ui/widgets/snack_bar_message.dart';
+import 'package:project3212/ui/widgets/tm_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
