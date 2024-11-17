@@ -19,7 +19,7 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   @override
   void initState() {
     super.initState();
-    _getProgressTaskList();
+    // _getProgressTaskList();
   }
 
   @override
