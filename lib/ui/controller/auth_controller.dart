@@ -8,7 +8,7 @@ class AuthController {
   static const String _accessTokenKey = 'access-token';
   static const String _userDataKey = 'userdata';
   static String? accessToken;
-  static UserModel? userData;
+  // static UserModel? userData;
 
   static Future<void> saveAccessToken(String token) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
