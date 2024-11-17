@@ -27,33 +27,33 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          _getProgressTaskList();
+          // _getProgressTaskList();
         },
         child: Column(
-          children: [
-            BuildSummerySection(),
-            Expanded(
-              child: Visibility(
-                visible: !_getProgressTaskListProgress,
-                replacement: const CenterCircularProgress(),
-                // child: ListView.separated(
-                //     // itemCount: _newProgressList.length,
-                //     itemBuilder: (context, index) {
-                //       return TaskCard(
-                //         taskModel: _newProgressList[index],
-                //         onRefreshList: () {
-                //           _getProgressTaskList();
-                //         },
-                //       );
-                //     },
-                //     separatorBuilder: (context, index) {
-                //       return const SizedBox(
-                //         height: 8,
-                //       );
-                //     }),
-              ),
-            ),
-          ],
+          // children: [
+          //   BuildSummerySection(),
+          //   Expanded(
+          //     // child: Visibility(
+          //     //   visible: !_getProgressTaskListProgress,
+          //     //   replacement: const CenterCircularProgress(),
+          //     //   // child: ListView.separated(
+          //     //   //     // itemCount: _newProgressList.length,
+          //     //   //     itemBuilder: (context, index) {
+          //     //   //       return TaskCard(
+          //     //   //         taskModel: _newProgressList[index],
+          //     //   //         onRefreshList: () {
+          //     //   //           _getProgressTaskList();
+          //     //   //         },
+          //     //   //       );
+          //     //   //     },
+          //     //   //     separatorBuilder: (context, index) {
+          //     //   //       return const SizedBox(
+          //     //   //         height: 8,
+          //     //   //       );
+          //     //   //     }),
+          //     // ),
+          //   ),
+          // ],
         ),
       ),
     );
