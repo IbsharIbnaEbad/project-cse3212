@@ -7,7 +7,7 @@ This is the project for the CSE 3212 course. The project aims to ["ss"].
 
 ## Features
 
-- []
+- [  ]
 
 ## Technologies Used
 
