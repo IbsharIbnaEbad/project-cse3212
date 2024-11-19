@@ -36,12 +36,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _getUserData();
   }
 
-  void _getUserData() {
-    _emailTEController.text = AuthController.userData?.email ?? '';
-    _firstNameTEController.text = AuthController.userData?.firstName ?? '';
-    _lastNameTEController.text = AuthController.userData?.lastName ?? '';
-    _phoneTEController.text = AuthController.userData?.mobile ?? '';
-  }
+  // void _getUserData() {
+  //   _emailTEController.text = AuthController.userData?.email ?? '';
+  //   _firstNameTEController.text = AuthController.userData?.firstName ?? '';
+  //   _lastNameTEController.text = AuthController.userData?.lastName ?? '';
+  //   _phoneTEController.text = AuthController.userData?.mobile ?? '';
+  // }
 
   @override
   Widget build(BuildContext context) {
