@@ -92,14 +92,14 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     }
   }
 
-  Future<void> _addNewTask() async {
-    _addNewTaskInProgress = true;
-    setState(() {});
-    Map<String, dynamic> requestbody = {
-      "title": _titleTEController.text.trim(),
-      "description": _descriptionTEController.text.trim(),
-      "status": "New"
-    };
+  // Future<void> _addNewTask() async {
+  //   _addNewTaskInProgress = true;
+  //   setState(() {});
+  //   Map<String, dynamic> requestbody = {
+  //     "title": _titleTEController.text.trim(),
+  //     "description": _descriptionTEController.text.trim(),
+  //     "status": "New"
+  //   };
   //
   //   final NetworkResponse response = await NetworkCaller.postRequest(
   //       url: Urls.addNewTask, body: requestbody);
