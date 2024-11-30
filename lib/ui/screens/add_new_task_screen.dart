@@ -88,7 +88,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
 
   void _onTapSubmitButton() {
     if (_formkey.currentState!.validate()) {
-      // _addNewTask();
+       _addNewTask();
     }
   }
 
