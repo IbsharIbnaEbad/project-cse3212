@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/data/models/network_response.dart';
-import 'package:taskmanager/data/models/task_status_count_model.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/models/task_status_count_model.dart';
+import 'package:project3212/data/models/task_status_model.dart';
+import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/utils/urls.dart';
+import 'package:project3212/ui/widgets/center_circular_progress.dart';
+import 'package:project3212/ui/widgets/snack_bar_message.dart';
+import 'package:project3212/ui/widgets/task_summery_screen.dart';
 
-import 'package:taskmanager/data/models/task_status_model.dart';
-import 'package:taskmanager/data/services/network_caller.dart';
-import 'package:taskmanager/data/utils/urls.dart';
-import 'package:taskmanager/ui/widgets/center_circular_progress.dart';
-import 'package:taskmanager/ui/widgets/snack_bar_message.dart';
-import 'package:taskmanager/ui/widgets/task_summery_screen.dart';
 
 class BuildSummerySection extends StatefulWidget {
   const BuildSummerySection({super.key});

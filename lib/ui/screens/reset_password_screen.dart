@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:project3212/data/models/network_response.dart';
-// import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/services/network_caller.dart';
 import 'package:project3212/ui/screens/signin_screen.dart';
 import 'package:project3212/ui/utils/app_colors.dart';
 import 'package:project3212/ui/widgets/Screenbackground.dart';
@@ -79,10 +79,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           decoration: const InputDecoration(hintText: 'Confirm password'),
         ),
         const SizedBox(height: 20),
-        // ElevatedButton(
-        //   // onPressed: _onTapNextButton,
-        //   child: const Icon(Icons.arrow_circle_right_outlined),
-        // ),
+        ElevatedButton(
+          onPressed: _onTapNextButton,
+          child: const Icon(Icons.arrow_circle_right_outlined),
+        ),
       ],
     );
   }
@@ -110,44 +110,44 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     );
   }
 
-  // void _onTapNextButton() async {
-  //   if (_passwordController.text != _confirmPasswordController.text) {
-  //     showSnackBarMessage(context, 'Passwords do not match', true);
-  //     return;
-  //   }
-  //
-  //   String email = widget.email;
-  //   String otp = widget.otp;
-  //   String newPassword = _passwordController.text;
-  //
-  //   Map<String, dynamic> requestBody = {
-  //     "email": email,
-  //     "OTP": otp,
-  //     "password": newPassword,
-  //   };
-  //
-  //   // NetworkResponse response = await NetworkCaller.postRequest(
-  //   //   url: 'http://35.73.30.144:2005/api/v1/RecoverResetPassword/',
-  //   //   body: requestBody,
-  //   // );
-  //
-  //   // if (response.isSuccess) {
-  //   //   showSnackBarMessage(context, 'Password reset successful');
-  //   //   Navigator.pushAndRemoveUntil(
-  //   //     context,
-  //   //     MaterialPageRoute(builder: (context) => SignInScreen()),
-  //   //         (_) => false,
-  //   //   );
-  //   // } else {
-  //     showSnackBarMessage(context, response.errorMessage ?? 'Failed to reset password', true);
-  //   }
+  void _onTapNextButton() async {
+    if (_passwordController.text != _confirmPasswordController.text) {
+      showSnackBarMessage(context, 'Passwords do not match', true);
+      return;
+    }
+
+    String email = widget.email;
+    String otp = widget.otp;
+    String newPassword = _passwordController.text;
+
+    Map<String, dynamic> requestBody = {
+      "email": email,
+      "OTP": otp,
+      "password": newPassword,
+    };
+
+    NetworkResponse response = await NetworkCaller.postRequest(
+      url: 'http://35.73.30.144:2005/api/v1/RecoverResetPassword/',
+      body: requestBody,
+    );
+
+    if (response.isSuccess) {
+      showSnackBarMessage(context, 'Password reset successful');
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => SignInScreen()),
+            (_) => false,
+      );
+    } else {
+      showSnackBarMessage(context, response.errorMessage ?? 'Failed to reset password', true);
+    }
   }
 
-  // void _onTapSignIn() {
-  //   Navigator.pushAndRemoveUntil(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => SignInScreen()),
-  //         (_) => false,
-  //   );
-  // }
-// }
+  void _onTapSignIn() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => SignInScreen()),
+          (_) => false,
+    );
+  }
+}

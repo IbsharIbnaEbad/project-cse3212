@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:taskmanager/ui/controller/auth_controller.dart';
-import 'package:taskmanager/ui/screens/profile_screen.dart';
-import 'package:taskmanager/ui/screens/signin_screen.dart';
-
-import 'package:taskmanager/ui/utils/app_colors.dart';
-import 'package:taskmanager/ui/utils/assets_path.dart';
+import 'package:project3212/ui/controller/auth_controller.dart';
+import 'package:project3212/ui/screens/profile_screen.dart';
+import 'package:project3212/ui/screens/signin_screen.dart';
+import 'package:project3212/ui/utils/assets_path.dart';
 
 class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TMAppBar({

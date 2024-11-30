@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-// import 'package:project3212/data/models/network_response.dart';
-// import 'package:project3212/data/models/task_status_count_model.dart';
-// import 'package:project3212/data/models/task_status_model.dart';
-// import 'package:project3212/data/services/network_caller.dart';
-// import 'package:project3212/data/models/task_list_model.dart';
-// import 'package:project3212/data/models/task_model.dart';
-// import 'package:project3212/data/utils/urls.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/models/task_status_count_model.dart';
+import 'package:project3212/data/models/task_status_model.dart';
+import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/models/task_list_model.dart';
+import 'package:project3212/data/models/task_model.dart';
+import 'package:project3212/data/utils/urls.dart';
 import 'package:project3212/ui/screens/add_new_task_screen.dart';
 import 'package:project3212/ui/widgets/build_summery_section.dart';
 import 'package:project3212/ui/widgets/center_circular_progress.dart';
@@ -25,7 +25,7 @@ class NewTaskScreen extends StatefulWidget {
 class _NewTaskScreenState extends State<NewTaskScreen> {
   bool _getNewTaskListProgress = false;
 
-  // List<TaskModel> _newTaskList = [];
+  List<TaskModel> _newTaskList = [];
 
 
   @override
@@ -44,28 +44,28 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
         },
         child: Column(
-          // children: [
-          //   BuildSummerySection(),
-          //   Expanded(
-          //     // child: Visibility(
-          //     //   visible: !_getNewTaskListProgress,
-          //     //   replacement: const CenterCircularProgress(),
-          //     //   child: ListView.separated(
-          //     //       itemCount: _newTaskList.length,
-          //     //       itemBuilder: (context, index) {
-          //     //         return TaskCard(
-          //     //           taskModel: _newTaskList[index],
-          //     //           onRefreshList: () => _getNewTasklist(),
-          //     //         );
-          //     //       },
-          //     //       separatorBuilder: (context, index) {
-          //     //         return const SizedBox(
-          //     //           height: 8,
-          //     //         );
-          //     //       }),
-          //     // ),
-          //   ),
-          // ],
+          children: [
+            BuildSummerySection(),
+            Expanded(
+              child: Visibility(
+                visible: !_getNewTaskListProgress,
+                replacement: const CenterCircularProgress(),
+                child: ListView.separated(
+                    itemCount: _newTaskList.length,
+                    itemBuilder: (context, index) {
+                      return TaskCard(
+                        taskModel: _newTaskList[index],
+                        onRefreshList: () => _getNewTasklist(),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 8,
+                      );
+                    }),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -83,26 +83,26 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       ),
     );
     if (shouldRefresh == true) {
-      // _getNewTasklist();
+      _getNewTasklist();
     }
   }
 
-  // Future<void> _getNewTasklist() async {
-  //   _newTaskList.clear();
-  //   _getNewTaskListProgress = true;
-  //   setState(() {});
-  //   final NetworkResponse response =
-  //       await NetworkCaller.getRequest(url: Urls.newTaskList);
-  //   if (response.isSuccess) {
-  //     final TaskListModel taskListModel =
-  //         TaskListModel.fromJson(response.responseData);
-  //     _newTaskList = taskListModel.taskList ?? [];
-  //   } else {
-  //     showSnackBarMessage(context, response.errorMessage, true);
-  //   }
-  //   _getNewTaskListProgress = false;
-  //   setState(() {});
-  // }
+  Future<void> _getNewTasklist() async {
+    _newTaskList.clear();
+    _getNewTaskListProgress = true;
+    setState(() {});
+    final NetworkResponse response =
+        await NetworkCaller.getRequest(url: Urls.newTaskList);
+    if (response.isSuccess) {
+      final TaskListModel taskListModel =
+          TaskListModel.fromJson(response.responseData);
+      _newTaskList = taskListModel.taskList ?? [];
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
+    _getNewTaskListProgress = false;
+    setState(() {});
+  }
 
 
 

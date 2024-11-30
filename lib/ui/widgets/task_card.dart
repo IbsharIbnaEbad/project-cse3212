@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:taskmanager/data/models/network_response.dart';
-import 'package:taskmanager/data/services/network_caller.dart';
-import 'package:taskmanager/data/models/task_model.dart';
-import 'package:taskmanager/data/utils/urls.dart';
-import 'package:taskmanager/ui/utils/app_colors.dart';
-import 'package:taskmanager/ui/utils/assets_path.dart';
-import 'package:taskmanager/ui/widgets/snack_bar_message.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/models/task_model.dart';
+import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/utils/urls.dart';
+import 'package:project3212/ui/utils/assets_path.dart';
+import 'package:project3212/ui/widgets/snack_bar_message.dart';
+
 
 class TaskCard extends StatefulWidget {
   const TaskCard({
@@ -184,21 +184,21 @@ class _TaskCardState extends State<TaskCard> {
     );
   }
 
-  // Future<void> _onTapDeleteButton() async {
-  //   _changeStatusInProgress = true;
-  //   setState(() {});
-  //   final NetworkResponse response = await NetworkCaller.getRequest(
-  //       url: Urls.deleteTask(widget.taskModel.sId!));
-  //   if (response.isSuccess) {
-  //     widget.onRefreshList();
-  //     _changeStatusInProgress = false;
-  //     setState(() {});
-  //   } else {
-  //     _changeStatusInProgress = false;
-  //     setState(() {});
-  //     showSnackBarMessage(context, response.errorMessage);
-  //   }
-  // }
+  Future<void> _onTapDeleteButton() async {
+    _changeStatusInProgress = true;
+    setState(() {});
+    final NetworkResponse response = await NetworkCaller.getRequest(
+        url: Urls.deleteTask(widget.taskModel.sId!));
+    if (response.isSuccess) {
+      widget.onRefreshList();
+      _changeStatusInProgress = false;
+      setState(() {});
+    } else {
+      _changeStatusInProgress = false;
+      setState(() {});
+      showSnackBarMessage(context, response.errorMessage);
+    }
+  }
 
   Widget _buildTaskStatusChip() {
     return Chip(

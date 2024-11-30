@@ -116,7 +116,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   Future<void> _onTapNextButton() async {
     String email = _emailController.text.trim();
 
-
+    // Validate the email format
     if (email.isEmpty) {
 
       showSnackBarMessage(context, 'Please enter a valid email address',true);
@@ -147,12 +147,12 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
     setState(() {});
   }
 
- void _onTapNextButton() {
+/* void _onTapNextButton() {
 
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => ForgotPasswordOTPScreen()));
 
-  }
+  }*/
 
   void _onTapSignIn() {
     Navigator.pop(context);

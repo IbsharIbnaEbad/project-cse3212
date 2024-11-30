@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/models/task_list_model.dart';
+import 'package:project3212/data/models/task_model.dart';
+import 'package:project3212/data/services/network_caller.dart';
+import 'package:project3212/data/utils/urls.dart';
 
 import 'package:project3212/ui/widgets/build_summery_section.dart';
 import 'package:project3212/ui/widgets/center_circular_progress.dart';
@@ -14,7 +19,7 @@ class ProgressTaskScreen extends StatefulWidget {
 
 class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   bool _getProgressTaskListProgress = false;
-  // List<TaskModel> _newProgressList = [];
+  List<TaskModel> _newProgressList = [];
 
   @override
   void initState() {
@@ -30,49 +35,49 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
           // _getProgressTaskList();
         },
         child: Column(
-          // children: [
-          //   BuildSummerySection(),
-          //   Expanded(
-          //     // child: Visibility(
-          //     //   visible: !_getProgressTaskListProgress,
-          //     //   replacement: const CenterCircularProgress(),
-          //     //   // child: ListView.separated(
-          //     //   //     // itemCount: _newProgressList.length,
-          //     //   //     itemBuilder: (context, index) {
-          //     //   //       return TaskCard(
-          //     //   //         taskModel: _newProgressList[index],
-          //     //   //         onRefreshList: () {
-          //     //   //           _getProgressTaskList();
-          //     //   //         },
-          //     //   //       );
-          //     //   //     },
-          //     //   //     separatorBuilder: (context, index) {
-          //     //   //       return const SizedBox(
-          //     //   //         height: 8,
-          //     //   //       );
-          //     //   //     }),
-          //     // ),
-          //   ),
-          // ],
+          children: [
+            BuildSummerySection(),
+            Expanded(
+              child: Visibility(
+                visible: !_getProgressTaskListProgress,
+                replacement: const CenterCircularProgress(),
+                child: ListView.separated(
+                    // itemCount: _newProgressList.length,
+                    itemBuilder: (context, index) {
+                      return TaskCard(
+                        taskModel: _newProgressList[index],
+                        onRefreshList: () {
+                          _getProgressTaskList();
+                        },
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 8,
+                      );
+                    }),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  // Future<void> _getProgressTaskList() async {
-  //   _newProgressList.clear();
-  //   _getProgressTaskListProgress = true;
-  //   setState(() {});
-  //   final NetworkResponse response =
-  //       await NetworkCaller.getRequest(url: Urls.ProgressTaskList);
-  //   if (response.isSuccess) {
-  //     final TaskListModel taskListModel =
-  //         TaskListModel.fromJson(response.responseData);
-  //     _newProgressList = taskListModel.taskList ?? [];
-  //   } else {
-  //     showSnackBarMessage(context, response.errorMessage, true);
-  //   }
-  //   _getProgressTaskListProgress = false;
-  //   setState(() {});
-  // }
+  Future<void> _getProgressTaskList() async {
+    _newProgressList.clear();
+    _getProgressTaskListProgress = true;
+    setState(() {});
+    final NetworkResponse response =
+        await NetworkCaller.getRequest(url: Urls.ProgressTaskList);
+    if (response.isSuccess) {
+      final TaskListModel taskListModel =
+          TaskListModel.fromJson(response.responseData);
+      _newProgressList = taskListModel.taskList ?? [];
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
+    _getProgressTaskListProgress = false;
+    setState(() {});
+  }
 }

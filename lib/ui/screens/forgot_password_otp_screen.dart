@@ -132,7 +132,7 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
 
   void _onTapNextButton() {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => ResetPasswordScreen()));
+        MaterialPageRoute(builder: (context) => ResetPasswordScreen(email: email,)));
   }
 
   void _onTapNextButton() async {
