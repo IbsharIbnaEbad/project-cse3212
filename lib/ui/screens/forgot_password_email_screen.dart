@@ -123,36 +123,36 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
       return;
     }
 
-    // await _sendEmailVerificationRequest(email);
+    await _sendEmailVerificationRequest(email);
   }
 
-  // Future<void> _sendEmailVerificationRequest(String email) async {
-  //   _forgetPasswordInProgress = true;
-  //   setState(() {});
-  //
-  //   final NetworkResponse response = await NetworkCaller.getRequest(
-  //     url: Urls.recoverEmail(email),
-  //   );
-  //
-  //   if (response.isSuccess) {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => ForgotPasswordOTPScreen(email: email,)),
-  //     );
-  //   } else {
-  //     showSnackBarMessage(context, response.errorMessage, true);
-  //   }
-  //
-  //   _forgetPasswordInProgress = false;
-  //   setState(() {});
-  // }
+  Future<void> _sendEmailVerificationRequest(String email) async {
+    _forgetPasswordInProgress = true;
+    setState(() {});
 
-/* void _onTapNextButton() {
+    final NetworkResponse response = await NetworkCaller.getRequest(
+      url: Urls.recoverEmail(email),
+    );
+
+    if (response.isSuccess) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ForgotPasswordOTPScreen(email: email,)),
+      );
+    } else {
+      showSnackBarMessage(context, response.errorMessage, true);
+    }
+
+    _forgetPasswordInProgress = false;
+    setState(() {});
+  }
+
+ void _onTapNextButton() {
 
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => ForgotPasswordOTPScreen()));
 
-  }*/
+  }
 
   void _onTapSignIn() {
     Navigator.pop(context);
