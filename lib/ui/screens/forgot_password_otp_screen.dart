@@ -12,7 +12,7 @@ import 'package:project3212/ui/widgets/center_circular_progress.dart';
 import 'package:project3212/ui/widgets/snack_bar_message.dart';
 
 class ForgotPasswordOTPScreen extends StatefulWidget {
-  final String email;
+  final String email; // Email passed from previous screen
   const ForgotPasswordOTPScreen({super.key, required this.email});
 
   @override
@@ -130,10 +130,10 @@ class _ForgotPasswordOTPScreenState extends State<ForgotPasswordOTPScreen> {
     );
   }
 
-  void _onTapNextButton() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => ResetPasswordScreen(email: email,)));
-  }
+  // void _onTapNextButton() {
+  //   Navigator.push(context,
+  //       MaterialPageRoute(builder: (context) => ResetPasswordScreen()));
+  // }
 
   void _onTapNextButton() async {
     String otp = _otpController.text.trim();

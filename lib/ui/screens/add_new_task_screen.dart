@@ -5,6 +5,7 @@ import 'package:project3212/data/utils/urls.dart';
 import 'package:project3212/ui/widgets/snack_bar_message.dart';
 import 'package:project3212/ui/widgets/tm_app_bar.dart';
 
+
 class AddNewTaskScreen extends StatefulWidget {
   const AddNewTaskScreen({super.key});
 
@@ -18,21 +19,22 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
   final TextEditingController _descriptionTEController =
       TextEditingController();
   bool _addNewTaskInProgress = false;
-  bool _shouldRefreshPreviousPage = false;
+  bool _shouldRefreshPreviousPage =false;
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        if (didPop) {
+        if(didPop){
           return;
         }
-        Navigator.pop(context, _shouldRefreshPreviousPage);
+        Navigator.pop(context,_shouldRefreshPreviousPage);
       },
       child: Scaffold(
         appBar: TMAppBar(),
         body: SingleChildScrollView(
+          //todo check note for details
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Form(
@@ -104,7 +106,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
     _addNewTaskInProgress = false;
     setState(() {});
     if (response.isSuccess) {
-      _shouldRefreshPreviousPage = true;
+      _shouldRefreshPreviousPage=true;
       _clearTextField();
       showSnackBarMessage(context, 'new task added');
     } else {

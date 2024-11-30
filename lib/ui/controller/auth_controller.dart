@@ -1,15 +1,14 @@
 import 'dart:convert';
 
-import 'package:project3212/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:project3212/data/models/user_model.dart';
 
 
 class AuthController {
   static const String _accessTokenKey = 'access-token';
   static const String _userDataKey = 'userdata';
   static String? accessToken;
-  // static UserModel? userData;
+  static UserModel? userData;
 
   static Future<void> saveAccessToken(String token) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

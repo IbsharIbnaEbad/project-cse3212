@@ -27,12 +27,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   List<TaskModel> _newTaskList = [];
 
-
   @override
   void initState() {
     super.initState();
-    // _getNewTasklist();
-
+    _getNewTasklist();
   }
 
   @override
@@ -40,8 +38,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          // _getNewTasklist();
-
+          _getNewTasklist();
         },
         child: Column(
           children: [
@@ -103,10 +100,4 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     _getNewTaskListProgress = false;
     setState(() {});
   }
-
-
-
-
-
-
 }

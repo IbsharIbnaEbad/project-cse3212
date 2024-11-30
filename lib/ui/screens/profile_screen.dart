@@ -41,7 +41,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _firstNameTEController.text = AuthController.userData?.firstName ?? '';
     _lastNameTEController.text = AuthController.userData?.lastName ?? '';
     _phoneTEController.text = AuthController.userData?.mobile ?? '';
-
   }
 
   @override
@@ -196,8 +195,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       requestbody['photo'] = convertedImage;
     }
 
-    // NetworkResponse response = await NetworkCaller.postRequest(
-    //     url: Urls.updateProfile, body: requestbody);
+    NetworkResponse response = await NetworkCaller.postRequest(
+        url: Urls.updateProfile, body: requestbody);
     _updateProfileInprogress = false;
     setState(() {});
     if (response.isSuccess) {

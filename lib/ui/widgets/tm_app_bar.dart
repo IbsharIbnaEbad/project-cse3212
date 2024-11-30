@@ -3,6 +3,8 @@ import 'package:lottie/lottie.dart';
 import 'package:project3212/ui/controller/auth_controller.dart';
 import 'package:project3212/ui/screens/profile_screen.dart';
 import 'package:project3212/ui/screens/signin_screen.dart';
+
+import 'package:project3212/ui/utils/app_colors.dart';
 import 'package:project3212/ui/utils/assets_path.dart';
 
 class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -29,20 +31,27 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
       },
       child: AppBar(
         flexibleSpace: Container(
-          height: 120.0,
+          height: 300.0,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
+
                   Colors.blueAccent,
                   Colors.indigoAccent.shade400,
+
+
                 ],
               ),
               borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.elliptical(20, 20))),
+                  bottom: Radius.elliptical(20,20)
+              )
+          ),
         ),
+
         title: Row(
           children: [
             CircleAvatar(
+
               backgroundColor: Colors.white,
               radius: 20,
             ),
@@ -74,22 +83,23 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             IconButton(
-              onPressed: () async {
-                await AuthController.clearUserData();
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (builder) => const SignInScreen()),
-                  (predicate) => false,
-                );
-              },
+                onPressed: () async {
+                  await AuthController.clearUserData();
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (builder) => const SignInScreen()),
+                    (predicate) => false,
+                  );
+                },
               icon: _buildLottieIcon(Assetspath.logoutIcon),
             )
           ],
         ),
       ),
     );
-  }
 
+  }
   Widget _buildLottieIcon(String assetPath) {
     return Lottie.asset(
       assetPath,
@@ -99,9 +109,6 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(
-      80.0); // Make sure the AppBar height is as large as the flexibleSpace
-// @override
-// Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 //todo ktoolbar er bepare porte oibo
 }

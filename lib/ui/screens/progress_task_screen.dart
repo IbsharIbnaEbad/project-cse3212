@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project3212/data/models/network_response.dart';
+import 'package:project3212/data/services/network_caller.dart';
 import 'package:project3212/data/models/task_list_model.dart';
 import 'package:project3212/data/models/task_model.dart';
-import 'package:project3212/data/services/network_caller.dart';
 import 'package:project3212/data/utils/urls.dart';
-
 import 'package:project3212/ui/widgets/build_summery_section.dart';
 import 'package:project3212/ui/widgets/center_circular_progress.dart';
 import 'package:project3212/ui/widgets/snack_bar_message.dart';
@@ -24,7 +23,7 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   @override
   void initState() {
     super.initState();
-    // _getProgressTaskList();
+    _getProgressTaskList();
   }
 
   @override
@@ -32,7 +31,7 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          // _getProgressTaskList();
+          _getProgressTaskList();
         },
         child: Column(
           children: [
@@ -42,7 +41,7 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
                 visible: !_getProgressTaskListProgress,
                 replacement: const CenterCircularProgress(),
                 child: ListView.separated(
-                    // itemCount: _newProgressList.length,
+                    itemCount: _newProgressList.length,
                     itemBuilder: (context, index) {
                       return TaskCard(
                         taskModel: _newProgressList[index],

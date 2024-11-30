@@ -103,7 +103,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             style: const TextStyle(
               color: AppColor.BackgroungClr,
             ),
-            // recognizer: TapGestureRecognizer()..onTap = _onTapSignIn,
+            recognizer: TapGestureRecognizer()..onTap = _onTapSignIn,
           ),
         ],
       ),

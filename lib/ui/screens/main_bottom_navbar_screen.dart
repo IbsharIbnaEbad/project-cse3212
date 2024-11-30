@@ -30,6 +30,7 @@ class _MainBottomNavbarScreenState extends State<MainBottomNavbarScreen> {
       appBar: TMAppBar(),
       body: _screens[_seletedIndex],
       bottomNavigationBar: NavigationBar(
+        //todo : bottom navigation bar and navigation bar same e meterialdesign 3 pattern ana hoiche , navigationbar updated version
         selectedIndex: _seletedIndex,
         onDestinationSelected: (int index) {
           _seletedIndex = index;
