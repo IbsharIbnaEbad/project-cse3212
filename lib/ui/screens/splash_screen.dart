@@ -30,14 +30,14 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (contex) => const MainBottomNavbarScreen(),
+          builder: (context) => const MainBottomNavbarScreen(),
         ),
       );
     } else {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (contex) => const SignInScreen(),
+          builder: (context) => const SignInScreen(),
         ),
       );
     }
@@ -48,17 +48,19 @@ class _SplashScreenState extends State<SplashScreen> {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: background(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Lottie.asset(Assetspath.splashScreenicon),
+        child: SingleChildScrollView( // Wrap Column in SingleChildScrollView
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Lottie.asset(Assetspath.splashScreenicon),
 
-              // SvgPicture.asset(
-              //   Assetspath.logosvg,
-              //   width: 200,
-              // ),
-            ],
+                // SvgPicture.asset(
+                //   Assetspath.logosvg,
+                //   width: 200,
+                // ),
+              ],
+            ),
           ),
         ),
       ),
