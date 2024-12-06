@@ -37,6 +37,7 @@ class _TaskCardState extends State<TaskCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+
       elevation: 1,
       color: Colors.blueAccent.withOpacity(.5),
       margin: const EdgeInsets.symmetric(horizontal: 16),
